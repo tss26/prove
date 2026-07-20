@@ -185,7 +185,7 @@ async function verificaCliente() {
     // Recupera il profilo e i permessi
     const { data: profilo, error } = await supabase
         .from('utenti')
-        .select('ragione_sociale, permessi, percentuale_sconto')
+		.select('ragione_sociale, permessi, percentuale_sconto, provvigione_perc')
         .eq('id', user.id)
         .single();
     
@@ -203,6 +203,15 @@ async function verificaCliente() {
                 bloccoAcconto.style.display = 'none';
             }
         }
+		// --- INIZIO NUOVA GESTIONE DASHBOARD RAPPRESENTANTE ---
+        if (profilo.permessi === 'rappresentante') {
+            const dashRapp = document.getElementById('dashboardRappresentante');
+            if (dashRapp) {
+                dashRapp.style.display = 'block';
+                calcolaEVisualizzaMargini(user.id, profilo.provvigione_perc);
+            }
+        }
+        // --- FINE NUOVA GESTIONE DASHBOARD RAPPRESENTANTE ---
     }
     
     if (error || !profilo) {
@@ -1518,7 +1527,7 @@ let paginaCorrenteCliente = 1;
 let cacheOrdiniCliente = [];
 
 // 1. CARICAMENTO DATI (Sostituisce la tua vecchia funzione)
-async function caricaMieiOrdini() {
+/*async function caricaMieiOrdini() {
     const container = document.getElementById('ordiniListaCliente');
     if (!utenteCorrenteId) return;
 
@@ -1538,6 +1547,45 @@ async function caricaMieiOrdini() {
     ordiniCaricatiLocali = ordini; // Salviamo i dati nella variabile globale
     
     // Invece di disegnare subito, chiamiamo la funzione che applica i filtri
+    applicaFiltriCliente(); 
+}*/
+async function caricaMieiOrdini() {
+    const container = document.getElementById('ordiniListaCliente');
+    if (!utenteCorrenteId) return;
+
+    const { data: profilo } = await supabase.from('utenti').select('permessi').eq('id', utenteCorrenteId).single();
+    const isRappresentante = profilo?.permessi === 'rappresentante';
+    let tuttiGliOrdini = [];
+
+    // 1. Ordini Personali
+    const { data: ordiniPersonali, error: err1 } = await supabase
+        .from('ordini').select('*, utente:utenti(ragione_sociale, partita_iva)')
+        .eq('user_id', utenteCorrenteId);
+
+    if (!err1 && ordiniPersonali) tuttiGliOrdini = [...ordiniPersonali];
+
+    // 2. Ordini Rete (Se Rappresentante)
+    if (isRappresentante) {
+        const { data: ordiniRete, error: err2 } = await supabase
+            .from('ordini').select('*, utente:utenti!inner(ragione_sociale, partita_iva, rappresentante_id)')
+            .eq('utente.rappresentante_id', utenteCorrenteId);
+
+        if (!err2 && ordiniRete) {
+            const idsEsistenti = new Set(tuttiGliOrdini.map(o => o.id));
+            ordiniRete.forEach(o => {
+                if (!idsEsistenti.has(o.id)) {
+                    o.is_ordine_rete = true; 
+                    tuttiGliOrdini.push(o);
+                }
+            });
+        }
+    } else if (err1) {
+        container.innerHTML = `<p style="color:red">Errore caricamento: ${err1.message}</p>`;
+        return;
+    }
+
+    tuttiGliOrdini.sort((a, b) => new Date(b.data_ordine) - new Date(a.data_ordine));
+    ordiniCaricatiLocali = tuttiGliOrdini; 
     applicaFiltriCliente(); 
 }
 
@@ -6621,3 +6669,30 @@ async function controllaStatoNotifiche() {
     }
 }
 //-------------controlla se lo stato delle notifiche è gia stato accettato----
+
+
+//-------------calcolo gestione rappresentanti-------------------
+async function calcolaEVisualizzaMargini(rappId, provvigionePerc) {
+    provvigionePerc = parseFloat(provvigionePerc) || 0;
+    const { data: ordini, error } = await supabase
+        .from('ordini')
+        .select('totale, stato, utente:utenti!inner(rappresentante_id)')
+        .eq('utente.rappresentante_id', rappId)
+        .in('stato', ['Completato', 'Spedito', 'Consegnato', 'Fatturato']); 
+
+    if (error) { console.error(error); return; }
+
+    let fatturatoTotale = 0;
+    if (ordini) ordini.forEach(o => fatturatoTotale += parseFloat(o.totale || 0));
+
+    const margineGuadagnato = fatturatoTotale * (provvigionePerc / 100);
+
+    const df = document.getElementById('dashFatturatoRete');
+    const dp = document.getElementById('dashPercentuale');
+    const dm = document.getElementById('dashMargine');
+
+    if (df) df.textContent = `€ ${fatturatoTotale.toFixed(2)}`;
+    if (dp) dp.textContent = `${provvigionePerc}%`;
+    if (dm) dm.textContent = `€ ${margineGuadagnato.toFixed(2)}`;
+}
+//------------- fine calcolo gestione rappresentanti-------------------
