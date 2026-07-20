@@ -1,0 +1,1184 @@
+/* FONT BASE */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f6f8fb;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+/* HEADER */
+.header {
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #007bff;
+  letter-spacing: 1px;
+}
+
+.nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: #444;
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.nav a:hover {
+  color: #007bff;
+}
+
+/* LAYOUT GENERALE */
+/*.sezione-prodotto {
+    display: none; 
+}*/
+
+.sezione-prodotto {
+    display: none ; /* !important Nasconde la sezione di default */
+}
+
+/* quado è tutto nascosto elimina gli spazi vuoti */
+.galleria-prodotti-container {
+    grid-column: 1 / -1; /* Occupa tutta la larghezza */
+    margin-top: 0;
+}
+
+
+.container {
+  display: grid;
+  /* La griglia è FISSATA a una sola colonna per tutti gli schermi */
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.intro,
+.personalizza,
+.preventivo {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+/* SEZIONE INTRO */
+.intro h1 {
+  font-size: 1.8rem;
+  color: #007bff;
+  margin-bottom: 0.5rem;
+}
+
+.intro p {
+  color: #666;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #005fcc;
+}
+
+/* CATEGORIE */
+.categorie {
+  margin-top: 1.5rem;
+  display: flex;
+  gap: 1rem;
+}
+
+.categoria {
+  flex: 1;
+  background: #f0f4fa;
+  border: none;
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.categoria:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* PERSONALIZZA */
+.personalizza h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.forme {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+.forma {
+  flex: 1;
+  background: #f0f4fa;
+  border: none;
+  border-radius: 12px;
+  padding: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.forma.active,
+.forma:hover {
+  background: #007bff;
+  color: white;
+}
+
+.quantita {
+  margin: 1.5rem 0;
+}
+
+.quantita label {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+}
+
+.quantita input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+/* UPLOAD */
+.upload-box {
+  border: 2px dashed #007bff;
+  padding: 1.5rem;
+  text-align: center;
+  border-radius: 12px;
+  background: #f9fbff;
+  margin-bottom: 1.5rem;
+  cursor: pointer;
+}
+
+.upload-box p {
+  margin: 0.5rem 0;
+  color: #555;
+  font-size: 0.95rem;
+}
+
+/* COMPONENTI */
+.componenti h3 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.componenti label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.btn-add {
+  background: #28a745;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem 1.8rem;
+  margin-top: 1.5rem;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-add:hover {
+  background: #218838;
+}
+
+/* PREVENTIVO: Stili puliti per layout a colonna singola */
+.preventivo {
+  /* Regole di layout obsolete rimosse */
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  /* Aggiunge spazio sotto la galleria, dove ora si trova il carrello */
+  margin-top: 2rem; 
+}
+
+.preventivo h2 {
+  color: #007bff;
+  margin-bottom: 1rem;
+}
+
+.preventivo-lista {
+  background: #f9fbff;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.totale {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+
+.btn-secondary {
+  background: #007bff;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background 0.2s;
+}
+
+.btn-secondary:hover {
+  background: #005fcc;
+}
+
+/* FOOTER */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: #777;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+}
+
+/* RESPONSIVE: Le regole media query sono ora obsolete e possono essere rimosse */
+/* CANCELLATO: @media (max-width: 960px) { ... } */
+ 
+.galleria-prodotti-container {
+   /* Regole obsolete rimosse */
+}
+
+.categorie,
+.forme {
+  /* Regole obsolete rimosse */
+}
+
+
+/* CLIENTE.CSS - Stili per la sezione ordini */
+
+/* Stile base per la sezione ordini */
+.ordini-view {
+    grid-column: 1 / -1; 
+    background: white;
+    border-radius: 16px;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.lista-ordini h2 {
+    color: #007bff;
+    margin-bottom: 1.5rem;
+}
+
+.lista-ordini table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.lista-ordini th, .lista-ordini td {
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+    font-size: 0.95rem;
+}
+
+.lista-ordini th {
+    background-color: #f1f1f1;
+    color: #333;
+    font-weight: 600;
+}
+
+.lista-ordini tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+/* Stili per le label di stato */
+.stato-ordine {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    font-size: 0.85em;
+    display: inline-block;
+    min-width: 120px;
+    text-align: center;
+}
+
+.stato-Richiesta-Inviata {
+    background-color: #ffff99;
+    color: #333;
+}
+.stato-Attesa-Pagamento {
+    background-color: #f45a4b;
+    color: #333;
+}
+.stato-Convalida-Commerciale {
+    background-color: #0dcaf0;
+    color: white;
+}
+.stato-In-attesa-di-lavorazione {
+    background-color: #d0d8e2;
+    color: #333;
+}
+.stato-In-lavorazione {
+    background-color: #ffc108;
+    color: #333;
+}
+.stato-Completato {
+    background-color: #28a745;
+    color: white;
+}
+.stato-Stampato {
+    background-color: #20c997;
+    color: white;
+}
+.stato-Spedito {
+    background-color: #007bff;
+    color: white;
+}
+.stato-Annullato {
+    background-color: #6f42c1;
+    color: white;
+}
+/* Nuovi stati Bozza e Merce */
+
+.stato-Fare-Bozza {
+    background-color: #ffc107; /* Giallo */
+    color: #212529; /* Testo scuro */
+}
+
+.stato-Bozza-Inviata {
+    background-color: #17a2b8; /* Azzurro */
+    color: white;
+}
+
+.stato-Bozza-Confermata {
+    background-color: #9fedb1; /* Verde  background: ; color: #28a745; */
+    color: #28a745;
+}
+
+.stato-Modificare-Bozza {
+    background-color: #dc3545; /* Rosso */
+    color: white;
+}
+
+.stato-Merce-Ordinata {
+    background-color: #c89f7a; /* Marrone chiaro */
+    color: #a35a18; 
+}
+
+/* ======================================= */
+/* --- NUOVI STILI PER IL BANNER DI NAVIGAZIONE INIZIALE --- */
+
+.banner-iniziale-nav {
+    /* Stile generale del blocco (simile agli altri .galleria-blocco) */
+    background: white;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    margin-bottom: 2rem; /* Spazio sotto il blocco */
+}
+
+.banner-grid {
+    /* Layout a griglia 4 colonne */
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);/*impostato cosi vuol dire che ci sono 4 colonne per n righe*/
+    gap: 1.5rem; /* Spazio tra i blocchi */
+  /* --- MODIFICA per gestire la larghezza delle immagini  nel menu iniziale   --- */
+    max-width: 1000px; 
+    margin: 0 auto;   /* Questo serve a centrare il blocco nella pagina */
+}
+
+.banner-item {
+    /* Stile per ogni blocco/card cliccabile */
+    display: block; /* Rende tutto il blocco cliccabile */
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    overflow: hidden; /* Assicura che l'immagine non sborderà */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+    height: 100%;
+}
+
+.banner-item:hover {
+    transform: translateY(-3px); /* Effetto sollevamento al passaggio del mouse */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+
+.banner-item img {
+    /* Stile per le immagini interne */
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover; /* Assicura che l'immagine copra lo spazio senza distorsioni */
+    border-radius: 12px;
+}
+
+.banner-item-content {
+    /* Per un testo opzionale sotto l'immagine (se non usi solo l'immagine) */
+    padding: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* 📱 RESPONSIVE - Su schermi piccoli (cellulare) */
+@media (max-width: 768px) {
+    .banner-grid {
+        /* Passa a una colonna singola su schermi più stretti */
+        grid-template-columns: 1fr;
+    }
+}
+
+
+
+
+
+
+
+
+/* ======================================= */
+/* STILI PER TABELLE TAGLIE KIT CALCIO */
+/* ======================================= */
+
+/* Rende la tabella piú compatta (opzionale, se non è già responsive) */
+.taglie-table {
+    width: 100%;
+    table-layout: fixed; /* Assicura che le colonne abbiano larghezza uniforme */
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+/* Larghezza minima per le celle che contengono le taglie e i campi input */
+.taglie-table th, .taglie-table td {
+    padding: 4px; /* Riduci il padding per guadagnare spazio */
+    text-align: center;
+    white-space: nowrap; /* Evita che il testo vada a capo */
+    width: 10%; /* Larghezza proporzionale a ogni colonna taglia */
+}
+
+/* Stile per i campi di input quantità */
+.taglie-table input[type="number"] {
+    /* Imposta una larghezza fissa molto piccola per gli input */
+    width: 95%; 
+    max-width: 50px; /* Limita la dimensione massima (Cruciale) */
+    padding: 3px; 
+    text-align: center;
+    font-size: 0.85rem;
+    height: 25px; /* Riduci l'altezza per renderli meno invadenti */
+    box-sizing: border-box; /* Include padding e bordo nella larghezza */
+    margin: 0; /* IMPOSTA A ZERO: Rimuove i margini esterni invisibili (Cruciale) */
+}
+
+/* Stili per la prima colonna (Taglia/Quantità) */
+.taglie-table td:first-child {
+    width: 15%; 
+    text-align: left;
+    font-weight: 500;
+}
+
+
+/* Stili di base per il modale (Puoi anche aggiungerli in cliente.css) */
+.modal-backdrop {
+    position: fixed;
+    z-index: 1000; 
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); /* Sfondo semi-trasparente */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    margin: 5% auto; /* Centratura verticale/orizzontale */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 90%; /* Dimensione del modale su mobile */
+    max-width: 700px; /* Dimensione fissa su desktop */
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    position: relative;
+}
+
+.close-button {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #000;
+    text-decoration: none;
+}
+
+
+#kitCalcioSection h3 {
+    background: #eaffea;
+    padding: 10px;
+    border-left: 5px solid #28a745;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+
+
+/* ======================================= */
+/* STILI PER IL BOTTONE CARRELLO FLUTTUANTE */
+/* ======================================= */
+
+.floating-cart-btn {
+    /* 🔑 Posizionamento Fisso e Z-Index */
+    position: fixed; /* Lo fissa rispetto alla finestra del browser */
+    bottom: 30px;    /* 30px dal fondo */
+    right: 30px;     /* 30px da destra */
+    
+    /* CHIAVE ANTI-CONFLITTO: z-index > 1000 */
+    /* Lo impostiamo a 1010 per avere un margine di sicurezza */
+    z-index: 1010;   
+    
+    /* Stile Visivo del Bottone */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 65px; /* Leggermente più grande */
+    height: 65px;
+    font-size: 30px; /* Icona Carrello grande */
+    background-color: #24b6ff; /* Un colore che spicchi (Rosso/Carrello) */
+    color: white;
+    border-radius: 50%; /* Circolare */
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Ombra pronunciata */
+    text-decoration: none;
+    transition: transform 0.2s, background-color 0.2s;
+    border: 4px solid white; /* Aggiunge un bordo bianco per staccarlo */
+}
+
+.floating-cart-btn:hover {
+    background-color: #007bff; /* #c82333 Scurisce al passaggio del mouse */
+    transform: scale(1.1); /* Piccolo effetto di ingrandimento/salto */
+}
+
+
+
+/* ======================================= */
+/* STILI PER LA STAMPA (PRINT) */
+/* ======================================= */
+
+@media print {
+    /* Nascondi tutto il corpo della pagina */
+    body * {
+        visibility: hidden;
+    }
+    
+    /* Rendi visibile SOLO il modale e il suo contenuto */
+    #orderDetailsModal, 
+    #orderDetailsModal * {
+        visibility: visible;
+    }
+
+    /* Posiziona il modale in alto a sinistra per riempire il foglio A4 */
+    #orderDetailsModal {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 0;
+        background: white; /* Assicura sfondo bianco per risparmio inchiostro */
+        z-index: 9999;
+        overflow: visible !important; 
+    }
+
+    .modal-content {
+        border: none;
+        box-shadow: none;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    /* Rimuovi scrollbar per stampare tutto il testo lungo */
+    #modalOrderDetails {
+        max-height: none !important; 
+        overflow: visible !important;
+        border: none;
+    }
+
+    /* Nascondi il bottone di chiusura (X) e il bottone di stampa stesso sul foglio */
+    .close-button, 
+    #btnStampaOrdine {
+        display: none !important;
+    }
+}
+
+
+/* ======================================= */
+/* STILI PER IL BLOCCO RIVENDITORI (Lucchetto) */
+/* ======================================= */
+
+/* 1. Classe per il contenitore padre (la section) */
+.elemento-bloccabile {
+    position: relative !important; /* Fondamentale per posizionare la maschera */
+    /* Non mettiamo overflow:hidden qui per evitare di tagliare eventuali ombre, 
+       ma la maschera coprirà tutto */
+}
+
+/* 2. La Mascherina (Overlay) */
+.overlay-lock {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    
+    /* Effetto sfocato e sfondo semi-trasparente */
+    background-color: rgba(255, 255, 255, 0.6); 
+    backdrop-filter: blur(4px); /* Sfocatura moderna */
+    -webkit-backdrop-filter: blur(4px); /* Per Safari */
+    
+    /* Centrare il contenuto */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    
+    z-index: 999; /* Sopra a tutto il resto nella sezione */
+    border-radius: 16px; /* Segue il bordo delle tue section */
+    cursor: not-allowed;
+}
+
+/* 3. Contenitore del messaggio centrale */
+.lock-message-box {
+    background-color: #333;
+    color: #fff;
+    padding: 15px 25px;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    transform: translateY(-20px);
+}
+
+.lock-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.lock-title {
+    font-weight: 700;
+    text-transform: uppercase;
+    font-size: 1.1rem;
+    color: #ffd700; /* Oro */
+}
+
+.lock-subtitle {
+    font-size: 0.85rem;
+    margin-top: 5px;
+    color: #ccc;
+    font-weight: 400;
+}
+
+/* Effetto focus per la barra di ricerca menu ciente.html */
+#menuSearchInput:focus {
+    border-color: #007bff !important;
+    background-color: #ffffff !important;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.2);
+}
+#menuClearBtn:hover {
+    color: #dc3545 !important; /* Diventa rosso al passaggio del mouse */
+    transform: translateY(-50%) scale(1.2) !important; /* Si ingrandisce leggermente */
+}
+
+
+/*----------------------------------sistemo il css per mobile--------------------*/
+/* --- OTTIMIZZAZIONE HEADER MOBILE --- */
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column; /* Logo sopra, menu sotto */
+    padding: 1rem;
+    text-align: center;
+  }
+
+  .nav {
+    display: flex;
+    flex-wrap: wrap; /* Permette ai link di andare su più righe */
+    justify-content: center;
+    gap: 10px;
+    margin-top: 10px;
+  }
+
+  .nav a {
+    margin-left: 0; /* Rimuove il margine fisso */
+    font-size: 0.85rem; /* Testo leggermente più piccolo */
+    padding: 5px 8px;
+    background: #f0f4fa; /* Crea un effetto "bottone" per facilitare il tocco */
+    border-radius: 5px;
+  }
+
+  .logo img {
+    height: 30px; /* Logo più piccolo su mobile */
+  }
+}
+
+/* --- OTTIMIZZAZIONE BANNER GRID --- */
+.banner-grid {
+    display: grid;
+    /* Su desktop usa 4 colonne, ma con un limite di larghezza */
+    grid-template-columns: repeat(4, 1fr); 
+    gap: 1rem;
+    max-width: 900px; /* Aumentato per PC */
+    margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+    .banner-grid {
+        /* Su Tablet/Telefono: 2 icone per riga */
+        grid-template-columns: repeat(2, 1fr); 
+        max-width: 90%;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 400px) {
+    /* Su telefoni molto piccoli: icone grandi singole o restano 2 più piccole */
+    .banner-grid {
+        gap: 8px;
+    }
+}
+
+/* --- OTTIMIZZAZIONE KIT E PRODOTTI --- */
+@media (max-width: 600px) {
+    .kit-grid {
+        grid-template-columns: 1fr; /* Un prodotto sotto l'altro */
+        gap: 10px;
+    }
+
+    .kit-item {
+        display: flex;
+        align-items: center;
+        text-align: left;
+        padding: 10px;
+    }
+
+    .kit-item img {
+        width: 60px !important; /* Immagine più piccola a lato */
+        margin-right: 15px;
+    }
+    
+    /* Per le Bandiere */
+    .forme {
+        display: grid;
+        grid-template-columns: 1fr 1fr; /* 2 forme per riga invece di 4 strette */
+    }
+}
+
+/* --- SCROLL ORIZZONTALE PER TABELLE --- */
+.taglie-table {
+    display: block;
+    overflow-x: auto; /* Permette di scorrere la tabella col dito */
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+}
+
+/*------------------------------------------fine modifiche mobile----------------------------------------------*/
+
+/* =========================================================== */
+/* FIX FORZATO PER IL MODALE E LA TABELLA (AGGIUNGI ALLA FINE) */
+/* =========================================================== */
+
+/* 1. RISOLVE LO SPAZIO VUOTO ENORME INIZIALE */
+/* Forza il testo a comportarsi normalmente ignorando gli 'a capo' del codice HTML */
+#modalOrderDetails {
+    white-space: normal !important; 
+}
+
+/* 2. SISTEMA LA TABELLA DEI DETTAGLI */
+/* Forza la tabella a occupare tutto lo spazio e fissa le colonne */
+#modalOrderDetails table {
+    width: 100% !important;
+    table-layout: fixed !important; 
+    border-collapse: collapse !important;
+    margin-bottom: 20px !important;
+}
+
+/* 3. GESTIONE DELLE CELLE */
+#modalOrderDetails th, 
+#modalOrderDetails td {
+    padding: 8px 5px !important; /* Un po' di spazio interno */
+    word-wrap: break-word !important; /* Manda a capo le parole lunghe se necessario */
+    overflow-wrap: break-word !important;
+    vertical-align: top !important;
+}
+
+/* 4. FORZA IL PREZZO SU UNA RIGA SOLA */
+/* Evita che "€ 17.00" si spezzi su due righe */
+#modalOrderDetails td:nth-child(3),
+#modalOrderDetails th:nth-child(3) {
+    white-space: nowrap !important;
+    width: 20% !important; /* Larghezza fissa per il prezzo */
+}
+
+/* 5. GESTIONE COLONNA QUANTITÀ */
+#modalOrderDetails td:nth-child(2),
+#modalOrderDetails th:nth-child(2) {
+    width: 10% !important;
+    text-align: center !important;
+}
+
+/* 6. GESTIONE COLONNA FILE */
+#modalOrderDetails td:nth-child(4),
+#modalOrderDetails th:nth-child(4) {
+    width: 15% !important;
+    text-align: center !important;
+}
+/*--------------------------------------fine aggiunzione css per modifica vista ordine cliente .js-------------------------*/
+
+
+
+/* --- STILI PER LA SEZIONE BONUS --- */
+.stats-box {
+    display: flex; justify-content: space-around; flex-wrap: wrap; gap: 10px;
+    background: #f8f9fa; padding: 20px; border-radius: 12px; margin-bottom: 40px; border: 1px solid #e9ecef;
+}
+.stat-item { text-align: center; min-width: 100px; }
+.stat-label { font-size: 0.8em; color: #6c757d; text-transform: uppercase; letter-spacing: 1px; display: block; margin-bottom: 5px;}
+.stat-value { font-size: 1.4em; font-weight: 700; color: #2c3e50; }
+.stat-value.highlight { color: #28a745; font-size: 1.6em; }
+
+/* Barra di Progresso */
+.progress-container { position: relative; margin: 50px 0 60px 0; padding: 0 10px; }
+.progress-track {
+    height: 14px; background: #e9ecef; border-radius: 7px; position: relative; width: 100%;
+}
+.progress-fill {
+    height: 100%; background: linear-gradient(90deg, #ffd700, #ff8c00);
+    border-radius: 7px; width: 0%; transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(255, 140, 0, 0.4);
+}
+.user-emoji {
+    position: absolute; top: -12px; margin-left: -15px;
+    font-size: 2.2rem; transition: left 1.5s cubic-bezier(0.4, 0, 0.2, 1); z-index: 5;
+    filter: drop-shadow(0 2px 3px rgba(0,0,0,0.2));
+}
+
+/* Step (Pacchi Regalo) */
+.milestones { position: relative; height: 0; top: -20px; }
+.milestone {
+    position: absolute; transform: translateX(-50%); text-align: center; cursor: pointer; z-index: 2;
+}
+.milestone .icon { font-size: 1.5rem; transition: transform 0.2s; display: block; }
+.milestone:hover .icon { transform: scale(1.2); }
+.milestone .label {
+    display: block; font-size: 0.75rem; color: #6c757d; font-weight: 600; 
+    background: white; padding: 2px 4px; border-radius: 4px; border: 1px solid #eee; margin-top: 5px;
+}
+
+/* Lista Premi */
+.rewards-list { list-style: none; padding: 0; margin-top: 30px; }
+.rewards-list li {
+    padding: 15px; border-bottom: 1px solid #eee; display: flex; justify-content: space-between; align-items: center;
+}
+.rewards-list li:last-child { border-bottom: none; }
+.rewards-list li.unlocked { background-color: #f0fff4; border-left: 4px solid #28a745; }
+.rewards-list li.locked { opacity: 0.6; grayscale: 100%; }
+.reward-desc { font-weight: 500; font-size: 1.1em; }
+.reward-status { font-size: 1.2em; }
+
+
+
+/* ================================================= */
+/* STILI PER IL CUSTOMIZER DI ABBIGLIAMENTO (🎨)     */
+/* ================================================= */
+
+/* 1. Il bottone celeste nel Configuratore Rapido */
+.btn-customizer {
+    background-color: #e0f7fa; /* Celeste chiaro */
+    border: 1px solid #b2ebf2;
+    border-radius: 6px;
+    padding: 5px 12px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    color: #007bb5;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.btn-customizer:hover {
+    background-color: #b2ebf2;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    transform: translateY(-1px);
+}
+
+/* 2. Lo sfondo oscurato del Modale */
+.modal-backdrop {
+    display: none; /* Nascosto di default */
+    position: fixed;
+    z-index: 9999; /* Sopra a tutto */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5); /* Sfondo semi-trasparente */
+    backdrop-filter: blur(4px); /* Effetto sfocato */
+}
+
+/* 3. Il contenitore bianco del Modale */
+.modal-content {
+    background-color: #fff;
+    margin: 5% auto; /* 5% dall'alto e centrato */
+    padding: 25px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 1000px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    position: relative;
+    animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-30px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* 4. Il bottone di chiusura (X) */
+.close-button {
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    color: #aaa;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.close-button:hover {
+    color: #333;
+}
+
+/* 5. Stile per i gruppi di campi dinamici (Label + Input) */
+.dynamic-field-group {
+    margin-bottom: 15px;
+    text-align: left;
+}
+
+.dynamic-field-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #444;
+    margin-bottom: 5px;
+}
+
+.dynamic-field-group input, 
+.dynamic-field-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 0.95rem;
+    transition: border-color 0.2s;
+}
+
+.dynamic-field-group input:focus {
+    border-color: #009dff;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(0, 157, 255, 0.1);
+}
+
+/* Titolo dentro il modale */
+#customizerModal h2 {
+    margin-top: 0;
+    color: #333;
+    font-size: 1.4rem;
+    border-bottom: 2px solid #e0f7fa;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+
+
+/* ================================================= */
+/* STILI PER I BOTTONCINI (TAGS/CHIPS) SELEZIONABILI */
+/* ================================================= */
+
+.tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.tag-btn {
+    background-color: #f1f3f5;
+    border: 1px solid #dee2e6;
+    border-radius: 20px;
+    padding: 6px 14px;
+    font-size: 0.85rem;
+    color: #495057;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.tag-btn:hover {
+    background-color: #e2e6ea;
+    border-color: #ced4da;
+}
+
+/* Quando il bottoncino è cliccato/selezionato */
+.tag-btn.selected {
+    background-color: #007bff;
+    color: white;
+    border-color: #007bff;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.3);
+}
+
+
+/* ================================================= */
+/* STILI PER LA GRIGLIA MACROCATEGORIE (CARD VISIVE)*/
+/* ================================================= */
+
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+.category-card {
+    background: #f8f9fa;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 12px 5px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    user-select: none; /* Impedisce la selezione del testo col doppio clic */
+}
+
+.category-card:hover {
+    border-color: #b8daff;
+    background: #f1f7ff;
+    transform: translateY(-2px);
+}
+
+/* Quando la card viene cliccata/selezionata */
+.category-card.active {
+    border-color: #007bff;
+    background: #e6f2ff;
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+.category-icon {
+    font-size: 2.2rem; /* Grandezza dell'icona/emoji */
+    line-height: 1;
+}
+
+.category-name {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #495057;
+    line-height: 1.1;
+}
+
+/* Assicura che il modale sia scorrevole se il contenuto è troppo lungo */
+#customizerModal .modal-content {
+    max-height: 90vh; /* Altezza massima 90% dello schermo */
+    overflow-y: auto; /* Attiva lo scorrimento verticale */
+    padding-right: 15px; /* Evita che la barra copra il contenuto */
+}
+
+/* Rendi la griglia delle icone più compatta per lasciare spazio ai campi */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+    gap: 8px;
+    margin-bottom: 20px;
+    background: #fdfdfd;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #eee;
+}
+
+
+/*CSS per gestire il modale che si apre cliccando sul bottone ordini da evadere che vede admin e operatore*/
+/* Rendi il contatore in alto cliccabile */
+#btnOrdiniDaEvadere {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+#btnOrdiniDaEvadere:hover {
+    background-color: #e6f2ff;
+    color: #007bff;
+    transform: scale(1.02);
+}
+
+/* Effetto hover sulle righe della tabella del modale */
+#ordiniDaEvadereTableBody tr:hover {
+    background-color: #f1f7ff;
+}
+
+#ordiniDaEvadereTableBody td {
+    border-bottom: 1px solid #e9ecef;
+}
+/*--fine gestione modale---*/
+
+
+
+
+
+
+
+
+
+
+
+
